@@ -23,7 +23,7 @@ Crear un **catálogo web visual, limpio y moderno** donde los clientes puedan:
 ---
 
 ## 🛠️ Tecnologías utilizadas
-- **HTML / CSS / JavaScript**
+- **TypeScript / JavaScript**
 - **Astro** 
 - **Git & GitHub**
 
