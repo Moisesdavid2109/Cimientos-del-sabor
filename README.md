@@ -1,47 +1,51 @@
-# Astro Starter Kit: Basics
+# 🍰 Cimientos de Sabor  
+**Catálogo digital de una pastelería con raíces en la ingeniería civil y la repostería**
 
-```sh
-npm create astro@latest -- --template basics
-```
+Cimientos de Sabor es una plataforma web diseñada como catálogo digital para una pastelería.  
+El proyecto combina dos mundos que, a primera vista, parecen opuestos: **la ingeniería civil** y **la repostería**. Esta fusión da origen a un concepto único donde cada postre se construye con la misma precisión, dedicación y estructura que una obra de ingeniería.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🧱 ¿Por qué “Cimientos de Sabor”?
+El nombre surge de la idea de que así como una construcción necesita bases fuertes, una buena pastelería también requiere fundamentos sólidos: técnica, creatividad y pasión.  
+Aquí, los postres se convierten en pequeñas obras maestras donde cada capa, textura y forma tiene “ingeniería”.
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## 🎯 Objetivo del proyecto
+Crear un **catálogo web visual, limpio y moderno** donde los clientes puedan:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Ver los productos disponibles (postres, tortas, dulces artesanales).
+- Conocer precios, descripciones y detalles.
+- Navegar de forma sencilla, rápida y atractiva.
+- Explorar un diseño que mezcla estética pastelera con elementos inspirados en la ingeniería.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🛠️ Tecnologías utilizadas
+- **HTML / CSS / JavaScript**
+- **Astro** 
+- **Git & GitHub**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## ✨ Funcionalidades principales
+- Catálogo visual de productos.
+- Diseño responsivo para móviles.
+- Interfaz limpia, profesional y amigable.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# Cimientos-del-sabor
+---
+
+## 🏗️ Inspiración y concepto creativo
+El proyecto nace del cruce entre:
+- La formación en **ingeniería civil**, que aporta estructura, orden y proceso.
+- La pasión por la **repostería**, que añade sabor, color y creatividad.
+
+“Construyendo momentos” es más que un eslogan: es la identidad del proyecto.
+
+---
+
+## 📌 Estado del proyecto
+Actualmente en desarrollo con nuevas funcionalidades y mejoras visuales en camino.
+
+---
