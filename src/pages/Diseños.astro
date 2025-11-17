@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import tortas, { formatCOP } from '../data/tortas';
+const formatPrice = (n: any) => formatCOP(Number(n));
+---
+<Layout>
+    <main>
+        <section class="galeria-tortas">
+            <h1>GALERIA DE TORTAS</h1>
+            <div class="galeria-grid" id="galeria-grid">
+                {tortas.map((t) => (
+                    <a href={`/producto/${t.id}`} class="card-torta" aria-label={`Torta ${t.title}, ver producto`}>
+                        <figure class="card-figure">
+                            <img src={t.img} alt={t.title} loading="lazy" />
+                        </figure>
+                        <div class="card-body">
+                            <h4 class="card-title">{t.title}</h4>
+                            <p class="card-precio">Consultar precio</p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style is:inline data-page-style>
+    :root{
+        --rosa-palido: #f7e9e9;
+        --accent: #f7a623;
+        --texto: #111111;
+        --muted: #6b6b6b;
+        --card-radius: 12px;
+        --gap: 1.25rem;
+        --max-width: 1100px;
+    }
+
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #f8f8f8;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .nav-bar h1 { margin: 0; font-size: 1.25rem; color: #333; }
+    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: #333; font-weight: 700; }
+    .nav-links a:hover { color: #0070f3; }
+
+    .galeria-tortas {
+        padding: 2.5rem 1rem;
+        background: transparent;
+    }
+    .galeria-tortas > h1 {
+        max-width: var(--max-width);
+        margin: 0 auto 1.25rem;
+        padding: 0 1rem;
+        font-size: 1.6rem;
+        color: var(--texto);
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .galeria-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap);
+        align-items: center;
+        justify-items: center;
+    }
+
+    .galeria-tortas {
+        padding: 2.5rem 1rem;
+    }
+    .galeria-tortas > h3 {
+        max-width: 1100px;
+        margin: 0 auto 1.25rem;
+        padding: 0 1rem;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .galeria-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        align-items: start;
+    }
+    .card-torta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        background: #f7e9e9; 
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: transform .18s ease, box-shadow .18s ease;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        width: auto;
+        max-width: 380px; 
+        height: 100%;
+        padding: 0.5rem 0;
+    }
+    .card-torta:focus,
+    .card-torta:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+        outline: none;
+    }
+    .card-figure {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .card-figure img {
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        border-radius: 10px;
+    }
+    .card-body {
+        padding: 1rem;
+        text-align: center;
+    }
+    .card-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #111;
+    }
+    .card-precio {
+        margin: 0.5rem 0 0;
+        font-weight: 800;
+        color: var(--accent);
+    }
+    .site-footer {
+        background: #f7e9e9;
+        color: #111;
+        padding: 2rem 1rem;
+        border-top: 1px solid rgba(0,0,0,0.04);
+        margin-top: 2.5rem;
+    }
+    .site-footer .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem 2rem;
+        align-items: start;
+        padding: 0 1rem;
+    }
+    .site-footer h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #111;
+    }
+    .footer-meta { margin: 0.25rem 0; font-weight: 600; }
+    .footer-meta a { color: #111; text-decoration: none; }
+    .redes-list { display:flex; gap:0.6rem; flex-wrap:wrap; }
+    .redes-list a {
+        display:inline-block;
+        background: rgba(0,0,0,0.06);
+        color: #111;
+        padding: 0.4rem 0.6rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+    .footer-col a { display:block; color: #111; text-decoration: none; margin: 0.25rem 0; font-weight:600; }
+    .footer-copy {
+        max-width: 1100px;
+        margin: 1.25rem auto 0;
+        padding: 0 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgba(0,0,0,0.6);
+    }
+    @media (max-width: 900px) {
+        .site-footer .footer-inner {
+            grid-template-columns: 1fr;
+        .card-torta { width: 90%; max-width: 520px; }
+            text-align: center;
+            gap: 0.75rem;
+        }
+        .redes-list { justify-content: center; }
+        .footer-col a { display: inline-block; margin: 0.35rem 0.6rem; }
+    }
+    @media (max-width: 600px) {
+        .galeria-grid { grid-template-columns: 1fr; }
+        .card-figure { height: 380px !important; }
+        .card-figure img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+(// fixed malformed style/script tags
+
+</style>

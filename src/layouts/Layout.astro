@@ -1,0 +1,113 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Favicon: prefer PNG logo (placed in /Image) for wider browser support -->
+		<link rel="icon" type="image/png" sizes="32x32" href="/Image/NombrePasteleria.png" />
+		<link rel="shortcut icon" href="/Image/NombrePasteleria.png" />
+		<!-- keep svg as fallback if present in public -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Cimientos del Sabor</title>
+	</head>
+	<body>
+		<Header />
+
+		<main id="main" aria-live="polite">
+			<div id="page-wrapper" class="page-transition" aria-label="Contenido de la página">
+				<div id="page-content" data-page>
+					<slot />
+				</div>
+			</div>
+		</main>
+
+			<script>
+				// Fade-in inicial: añade y quita la clase para animación al cargar
+				(function(){
+					const el = document.querySelector('#page-content');
+					if (!el) return;
+					el.classList.add('fade-in');
+					setTimeout(() => el.classList.remove('fade-in'), 450);
+				})();
+			</script>
+
+		<Footer />
+
+		<!-- Client-side page transition script -->
+		<script type="module" src="/js/page-transitions.js" defer></script>
+	</body>
+</html>
+
+	<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+		background: #fff;
+		color: #111;
+	}
+
+		main { min-height: 60vh; }
+
+		:root { --header-height: 72px; }
+		/* ensure content is pushed below the fixed header */
+		body { padding-top: var(--header-height); }
+		/* preferimos usar scroll-padding-top para que scrollIntoView respete el header sticky */
+		html { scroll-padding-top: var(--header-height); }
+		/* asegurar que los objetivos de ancla se posicionen debajo del header */
+		[id] { scroll-margin-top: calc(var(--header-height) + 8px); }
+
+	/* simple fade transition classes used by JS fallback */
+	.page-transition .fade-out {
+		animation: astro-fade-out 350ms ease-in forwards;
+	}
+
+	@keyframes astro-fade-out {
+		from { opacity: 1; transform: translateY(0); }
+		to { opacity: 0; transform: translateY(6px); }
+	}
+
+	.page-transition .fade-in {
+		animation: astro-fade-in 350ms ease-out forwards;
+	}
+
+	@keyframes astro-fade-in {
+		from { opacity: 0; transform: translateY(6px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	/* Global button/link animation utilities */
+	button, [role="button"], .btn, input[type="submit"], a.btn, a[class*="btn"], [class*="btn-"], [class*="boton"], .btn-cta, .btn-cta--large, .galeria-filter-btn, .ProductoRepostera-boton, .primary-nav a, .nav-actions .icon-link, .footer-col a, .redes-list a {
+		transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, background-color .12s ease;
+		will-change: transform, box-shadow;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	button:hover, [role="button"]:hover, .btn:hover, input[type="submit"]:hover, a.btn:hover, a[class*="btn"]:hover, [class*="btn-"]:hover, .btn-cta:hover, .btn-cta--large:hover, .galeria-filter-btn:hover, .ProductoRepostera-boton:hover, .primary-nav a:hover, .nav-actions .icon-link:hover, .footer-col a:hover, .redes-list a:hover,
+	button:focus-visible, [role="button"]:focus-visible, .btn:focus-visible, input[type="submit"]:focus-visible, a.btn:focus-visible, a[class*="btn"]:focus-visible, [class*="btn-"]:focus-visible, .btn-cta:focus-visible, .btn-cta--large:focus-visible, .galeria-filter-btn:focus-visible, .ProductoRepostera-boton:focus-visible, .primary-nav a:focus-visible, .nav-actions .icon-link:focus-visible, .footer-col a:focus-visible, .redes-list a:focus-visible {
+		transform: translateY(-3px) scale(1.02);
+		box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+	}
+
+	button:active, [role="button"]:active, .btn:active, input[type="submit"]:active, a.btn:active, a[class*="btn"]:active, [class*="btn-"]:active, .btn-cta:active, .btn-cta--large:active, .galeria-filter-btn:active, .ProductoRepostera-boton:active, .primary-nav a:active, .nav-actions .icon-link:active, .footer-col a:active, .redes-list a:active {
+		transform: translateY(0) scale(0.995);
+		box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+	}
+
+	/* reduce motion for users who prefer reduced motion */
+	@media (prefers-reduced-motion: reduce) {
+		button, [role="button"], .btn, input[type="submit"], a.btn, a[class*="btn"], [class*="btn-"], [class*="boton"], .btn-cta, .btn-cta--large, .galeria-filter-btn, .ProductoRepostera-boton, .primary-nav a, .nav-actions .icon-link, .footer-col a, .redes-list a {
+			transition: none !important;
+			transform: none !important;
+			box-shadow: none !important;
+		}
+	}
+</style>

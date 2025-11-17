@@ -1,0 +1,148 @@
+---
+---
+
+<header class="site-header" role="banner">
+   <div class="header-inner container">
+	   <a href="/" class="brand" aria-label="Cimientos del Sabor - Inicio">
+		   <img src="https://i.ibb.co/nN6m448G/Nombre-Pasteleria.png" alt="Cimientos del Sabor" class="brand-logo" />
+	   </a>
+
+	   <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Abrir menú">
+		   <span class="hamburger" aria-hidden="true"></span>
+	   </button>
+
+	   <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Principal">
+		   <ul>
+			   <li><a href="/">Inicio</a></li>
+			   <li><a href="/Diseños">Diseños</a></li>
+           
+		   </ul>
+	   </nav>
+
+	   <div class="nav-actions">
+		   <a class="icon-link" href="https://wa.me/584247753792?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+			   <img src="https://i.ibb.co/20V27q9M/WhatsApp.jpg" alt="WhatsApp" />
+		   </a>
+		   <a class="icon-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+			   <img src="https://i.ibb.co/CKqJF0S1/Instagram.jpg" alt="Instagram" />
+		   </a>
+		   <a class="icon-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+			   <img src="https://i.ibb.co/ycvBV784/Facebook.png" alt="Facebook" />
+		   </a>
+	   </div>
+   </div>
+	   <!-- Scroll progress bar just under the header (positioned inside header so it sits flush at its bottom) -->
+	   <div class="scroll-progress" aria-hidden="true">
+		   <div class="scroll-progress-bar"></div>
+	   </div>
+</header>
+
+<style>
+	:root{ --header-height: 80px; }
+	.site-header{
+		position: fixed; top:0; left:0; right:0; z-index:1200; width:100%;
+		transition: background-color .24s ease, box-shadow .24s ease, transform .18s ease;
+		background: rgba(255, 255, 255, 0.288); /* Fondo traslúcido con menor opacidad */
+		backdrop-filter: blur(6px); /* Efecto de desenfoque más ligero */
+		-webkit-backdrop-filter: blur(6px); /* Compatibilidad con Safari */
+		height: var(--header-height);
+		overflow: visible;
+	}
+
+	/* Scroll progress bar positioned inside the header so it sits exactly at the header's bottom */
+	.scroll-progress{ position:absolute; bottom:0; left:0; right:0; z-index:1201; height:4px; width:100%; background:transparent }
+	.scroll-progress-bar{ height:100%; width:0%; background: linear-gradient(90deg, #f7a31c 0%, #ffb85c 100%); box-shadow: 0 4px 12px rgba(247,163,28,0.12); border-radius:4px }
+	.site-header.scrolled{ 
+		background: #ffffff !important; /* Fondo sólido con prioridad */
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; /* Sombra más visible */
+		transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+	}
+
+	.header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; max-width:1100px; margin:0 auto; padding:0.6rem 1rem }
+	.brand-logo{ height:44px; display:block }
+
+	/* Primary navigation */
+	.primary-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:1.25rem; align-items:center }
+	.primary-nav a{ display:inline-block; padding:0.5rem 1rem; border-radius:999px; text-decoration:none; color:var(--texto, #222); font-weight:700; transition: background .12s ease, transform .12s ease }
+	.primary-nav a:hover, .primary-nav a:focus{ background: rgba(247,163,28,0.08); transform: translateY(-2px) }
+
+	/* Actions */
+	.nav-actions{ display:flex; align-items:center; gap:0.6rem }
+	.nav-actions .icon-link img{ height:36px; width:auto; border-radius:8px; display:block }
+
+	/* Mobile: hide desktop nav and show toggle */
+	.nav-toggle{ display:none; background:none; border:0; padding:8px; cursor:pointer }
+	.nav-toggle .hamburger{ width:22px; height:2px; background:#222; display:block; position:relative }
+	.nav-toggle .hamburger::before, .nav-toggle .hamburger::after{ content:''; position:absolute; left:0; right:0; height:2px; background:#222 }
+	.nav-toggle .hamburger::before{ top:-7px }
+	.nav-toggle .hamburger::after{ top:7px }
+
+		@media (max-width:900px){
+			/* Mobile: small dropdown under header */
+			.primary-nav{ position:absolute; right:1rem; top:calc(var(--header-height) + 8px); background:rgba(255,255,255,0.98); width:240px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.12); padding:0.5rem; transform:scaleY(0); transform-origin:top right; transition:transform .18s cubic-bezier(.2,.9,.3,1), opacity .18s; opacity:0; pointer-events:none }
+			.primary-nav.open{ transform:scaleY(1); opacity:1; pointer-events:auto }
+			.primary-nav ul{ flex-direction:column; gap:0.5rem }
+			.primary-nav a{ display:block; padding:0.6rem 0.8rem }
+			.nav-toggle{ display:block }
+			.nav-actions{ gap:0.5rem }
+		}
+
+	/* accessible focus styles */
+	.primary-nav a:focus{ outline: 3px solid rgba(247,163,28,0.18); outline-offset:3px }
+
+	html {
+		scroll-padding-top: var(--header-height); /* Reservar espacio para el header en el scroll */
+	}
+</style>
+
+<script>
+// Small client script to handle mobile toggle and scroll shadow
+document.addEventListener('DOMContentLoaded', function(){
+	var btn = document.querySelector('.nav-toggle');
+	var nav = document.getElementById('primary-nav');
+		if(btn && nav){
+			/** @type {HTMLElement} */ var btnEl = btn;
+			/** @type {HTMLElement} */ var navEl = nav;
+			btnEl.addEventListener('click', function(e){
+				e.stopPropagation();
+				var open = navEl.classList.toggle('open');
+				btnEl.setAttribute('aria-expanded', open ? 'true' : 'false');
+				if(open){
+					// focus first link for keyboard users
+					var first = navEl.querySelector('a'); if(first) first.focus();
+				}
+			});
+
+			// Close when clicking outside
+				document.addEventListener('click', function(event){
+					var target = event.target;
+					// Ensure target is a Node before using contains()
+					if(!(target instanceof Node)) return;
+					if(navEl.classList.contains('open') && !navEl.contains(target) && !btnEl.contains(target)){
+						navEl.classList.remove('open');
+						btnEl.setAttribute('aria-expanded', 'false');
+					}
+				});
+		}
+	var header = document.querySelector('.site-header');
+		/** @type {HTMLElement|null} */
+		var progress = document.querySelector('.scroll-progress-bar');
+	if(header){
+		/** @type {HTMLElement} */ var headerEl = header;
+		var last = 0;
+		window.addEventListener('scroll', function(){
+			var y = window.pageYOffset || document.documentElement.scrollTop;
+			if(y > 8) headerEl.classList.add('scrolled'); else headerEl.classList.remove('scrolled');
+				// update progress bar
+				if(progress && progress instanceof HTMLElement){
+					var doc = document.documentElement;
+					var scrollTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+					var height = Math.max(doc.scrollHeight - doc.clientHeight, 1);
+					var pct = Math.min(100, Math.max(0, (scrollTop / height) * 100));
+					progress.style.width = pct + '%';
+				}
+			last = y;
+		}, { passive: true });
+	}
+});
+</script>

@@ -1,0 +1,931 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<Layout>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+    <svg class="hero-glaze" viewBox="0 0 1440 340" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,180 Q120,260 240,180 T480,180 T720,260 T960,180 T1200,180 T1440,260 V340 H0 Z" fill="#f7e9e9"/>
+    </svg>
+        <div class="hero-inner">
+            <div class="hero-content-block">
+                <h1 class="hero-title">
+                    CIMIENTOS DE SABOR<br>
+                    <span class="accent accent-script">CONSTRUYENDO MOMENTOS</span>
+                </h1>
+                <p class="hero-desc">Donde los momentos dulces se hacen eternos. Cada pastel es una estructura de sabor diseñada con amor y precisión.</p>
+                <div class="hero-buttons">
+                    <a href="#galeria-tortas" class="btn-cta btn-cta--main">Ver diseños</a>
+                    <a href="https://wa.me/584247753792?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary">Haz tu pedido</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Intro: recuadro a la izquierda con texto y la imagen a la derecha -->
+        <section class="intro">
+            <div class="intro-inner">
+                <article class="intro-text">
+                    <h3>De la Obra a la Repostería</h3>
+                    <p>
+                        Cimientos del Sabor une la repostería con la ingeniería civil: cada pastel es una obra estructural de sabor, creada con precisión y creatividad. Utilizamos ingredientes frescos para construir experiencias dulces que hacen de cada ocasión algo verdaderamente inolvidable.
+                    </p>
+                </article>
+
+                <figure class="intro-image">
+                    <img src="https://i.ibb.co/KzQGKs7Z/Imagen-Secundaria.jpg" alt="Detalle torta" />
+                </figure>
+            </div>
+        </section>
+        
+        <section class="ProductoRepostera">
+            <div class="ProductoRepostera-grid">
+                <!-- Imagen producto con botón superpuesto; el texto "Conoce la repostera" ahora está como overlay dentro de la imagen -->
+                <div class="ProductoRepostera-imagen">
+                    <img src="https://i.ibb.co/8Lw5TLVc/Producto-Repostera.jpg" alt="Producto de repostería" />
+
+                    <article class="ConoceRepostera ConoceRepostera--overlay" aria-hidden="false">
+                        <h3>Conoce la repostera</h3>
+                        <p>
+                            La repostera de Cimientos del Sabor es una apasionada del arte dulce, con más de cuatro años de experiencia en el mundo de la repostería. Su formación en ingeniería civil le brinda una visión especial, donde la precisión y el cuidado se combinan para dar forma a auténticas estructuras de sabor. Cada pastel refleja su creatividad y dedicación, fusionando técnicas contemporáneas con el encanto de los sabores clásicos para ofrecer una experiencia verdaderamente memorable.   
+                        </p>
+                    </article>
+
+                    <a href="https://wa.me/584247753792?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--large ProductoRepostera-boton">Pide tu pedido via WhatsApp</a>
+                </div>
+                <!-- columna de foto removida temporalmente -->
+            </div>
+        </section>
+    <section id="galeria-tortas" class="galeria-tortas">
+            <h3>Conoce nuestras tortas</h3>
+            <div class="galeria-grid">
+                <a href="/producto/torta-2" class="card-torta" aria-label="Torta Arequipe, ver producto">
+                    <figure class="card-figure">
+                        <img src="https://i.ibb.co/JXPYZyB/Torta-arequipe1.png" alt="Torta Arequipe" loading="lazy" width="800" height="500" />
+                    </figure>
+                        <div class="card-body">
+                        <h4 class="card-title">Torta Arequipe</h4>
+                        <p class="card-precio">Consultar precio</p>
+                    </div>
+                </a>
+
+                <a href="/producto/torta-3" class="card-torta" aria-label="Torta Primera Comunión, ver producto">
+                    <figure class="card-figure">
+                        <img src="https://i.ibb.co/ynNcBKnZ/Primera-comunion1.jpg" alt="Torta Primera Comunión" loading="lazy" width="800" height="500" />
+                    </figure>
+                        <div class="card-body">
+                        <h4 class="card-title">Torta Primera Comunión</h4>
+                        <p class="card-precio">Consultar precio</p>
+                    </div>
+                </a>
+
+                <a href="/producto/torta-1" class="card-torta" aria-label="Torta Personalizada, ver producto">
+                    <figure class="card-figure">
+                        <img src="https://i.ibb.co/5WjjpYvD/Torta-Morada.jpg" alt="Torta Personalizada" loading="lazy" width="800" height="500" />
+                    </figure>
+                        <div class="card-body">
+                        <h4 class="card-title">Torta Personalizada</h4>
+                        <p class="card-precio">Consultar precio</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <div class="VerDiseños">
+            <a href="/Diseños" class="btn-cta btn-cta--large">Conoce más diseños</a>
+        </div>
+
+    </main>
+</Layout>
+
+<style>
+    :root {
+        --hero-height: 560px;
+        --content-max: 900px;
+        --rosa-palido: #f7e9e9; /* rosa pálido original */
+        --accent: #f0af46;
+    }
+
+    /* BARRA DE NAVEGACIÓN */
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: var(--rosa-palido);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .nav-bar h1 { margin: 0; font-size: 1.25rem; color: #333; }
+    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: #333; font-weight: 700; }
+    .nav-links a:hover { color: #0070f3; }
+
+    /* HERO centrado: se respeta el ancho real de la imagen */
+    .hero {
+        position: relative;
+        padding: 2.5rem 1rem 4.5rem 1rem;
+           background: linear-gradient(180deg, #f9f6fb 0%, var(--lavanda) 100%);
+        overflow: hidden;
+        min-height: 480px;
+    }
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+    .hero-glaze {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 340px;
+        z-index: 0;
+        pointer-events: none;
+        display: block;
+    }
+    @media (max-width: 600px) {
+        .hero-bg {
+            background:
+                url('https://www.transparenttextures.com/patterns/cubes.png') repeat,
+                linear-gradient(120deg, #f7e9e9 80%, #fff 100%);
+            opacity: 0.22;
+        }
+    }
+
+    .hero-inner {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    .hero-content-block {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.2rem;
+    }
+    .hero-title {
+        font-size: 2.1rem;
+        font-weight: 800;
+        line-height: 1.08;
+        margin: 0 0 0.7rem 0;
+        color: #222;
+        letter-spacing: 0.5px;
+    }
+    .hero-title .accent {
+        color: var(--accent);
+        font-size: 2.1rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        display: block;
+        margin-top: 0.15em;
+    }
+    .accent-script {
+        font-family: 'Lobster', cursive;
+        font-size: 2.3rem;
+        font-weight: 400;
+        color: #e38b8b;
+        letter-spacing: 1.5px;
+        text-shadow: 0 2px 12px rgba(247,163,28,0.10);
+    }
+    .hero-desc {
+        color: #444;
+        font-size: 1.05rem;
+        margin-bottom: 1.3rem;
+        line-height: 1.5;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        margin-bottom: 1.2rem;
+    }
+    .btn-cta--main {
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 0.9rem 2.1rem;
+        font-size: 1.1rem;
+        border: none;
+        box-shadow: 0 4px 16px rgba(247,163,28,0.13);
+        margin-bottom: 0.2rem;
+        text-decoration: none;
+        transition: background .18s, box-shadow .18s, transform .12s;
+    }
+    .btn-cta--main:hover {
+        background: #ffb85c;
+        box-shadow: 0 8px 28px rgba(247,163,28,0.18);
+        transform: translateY(-2px);
+    }
+    .btn-cta--secondary {
+        background: #fff;
+        color: #222;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 0.9rem 2.1rem;
+        font-size: 1.1rem;
+        border: 2px solid #222;
+        box-shadow: none;
+        text-decoration: none;
+        transition: border .18s, color .18s;
+    }
+    .btn-cta--secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+    .hero-visual {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .hero-img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 12px;
+        box-shadow: 0 10px 32px rgba(0,0,0,0.10);
+        margin: 0 auto;
+        display: block;
+    }
+    @media (max-width: 600px) {
+        .hero-inner {
+            max-width: 98vw;
+            padding: 0 0.5rem;
+        }
+        .hero-title, .hero-title .accent {
+            font-size: 1.25rem;
+        }
+        .hero-img {
+            max-width: 98vw;
+        }
+        .btn-cta--main, .btn-cta--secondary {
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem;
+        }
+    }
+    }
+
+    .hero-visual { position: relative; display: block; }
+
+    /* Imagen real: no se estira más allá de su tamaño natural */
+    .hero-img {
+        display: block;
+        width: 100%;
+        max-width: 1400px; /* imagen principal más grande */
+        height: auto;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 32px rgba(0,0,0,0.10);
+    }
+
+    /* Degradado sutil en la parte inferior de la imagen */
+    .hero-visual::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 6%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 100%);
+        pointer-events: none;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    /* Overlay: se coloca sobre la imagen y hacia la parte superior (área marcada) */
+    .hero-visual { position: relative; }
+    /* Contenedor que coloca el overlay centrado sobre la imagen */
+    /* colocar el bloque de texto hacia la zona inferior (dentro del area rosada) */
+    .hero-content {
+        position: absolute;
+        inset: 0; /* mismo tamaño que el padre .hero-visual */
+        display: flex;
+        align-items: center; /* centrar verticalmente */
+        justify-content: center;
+        z-index: 4;
+        pointer-events: none; /* permite clicks solo en elementos con pointer-events:auto */
+    }
+
+    .hero-overlay {
+        position: absolute;
+        pointer-events: auto; /* botones y enlaces pueden recibir clicks */
+        text-align: center;
+        color: #ffffff; /* texto blanco */
+        padding: 0.8rem 1rem;
+        display: inline-block;
+        line-height: 1.05;
+        /* No sobrepasar la mitad: ancho máximo 50% del contenedor y tope en px */
+        width: min(50%, 520px);
+        left: 49%;
+        transform: translate(calc(-50% - 2px), -50%);
+        top: 50%; /* centrar verticalmente */
+        max-height: 38vh; /* limitar altura en relación a la ventana para evitar scrollbar */
+        overflow: visible; /* evitar barra de scroll fea */
+        border-radius: 12px;
+    }
+
+    .hero-overlay::before {
+        content: "";
+        position: absolute;
+        inset: -0.4rem;
+        background: transparent;
+        border-radius: 10px;
+        z-index: -1;
+    }
+
+    .hero-title {
+        /* tamaño grande pero contenido dentro del bloque semitransparente */
+        font-size: clamp(1.6rem, 4.2vw, 3.6rem);
+        margin: 0 0 0.25rem 0;
+        font-weight: 800;
+        line-height: 1.02;
+        color: #fff;
+
+    }
+
+    .hero-sub { margin: 0; font-size: clamp(0.95rem, 1.6vw, 1.25rem); opacity: 0.98; color: #fff; font-weight: 600; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+
+    @media (min-width: 900px) {
+        .hero-title { font-size: 4.8rem; }
+        .hero-sub { font-size: 1.15rem; }
+    }
+
+    @media (min-width: 1400px) {
+        .hero-title { font-size: 5.2rem; }
+        .hero-sub { font-size: 1.25rem; }
+    }
+
+    /* permitir que el título rompa en pantallas muy pequeñas para evitar overflow */
+    @media (max-width: 520px) {
+        .hero-title { white-space: normal; font-size: 1.3rem; }
+        .hero-content { position: absolute; inset: 0; width: 100%; min-width: 0; z-index: 3; background: none; pointer-events: none; }
+        .hero-overlay {
+            position: absolute;
+            left: 50%;
+            transform: translate(calc(-50% - 2px), -50%);
+            top: 50%;
+            width: 92vw;
+            padding: 0.5rem 0.6rem;
+            box-sizing: border-box;
+            max-height: 34vh;
+            overflow: visible;
+            pointer-events: auto;
+        }
+    }
+
+    /* contenido encima de la imagen */
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Asegura que el contenedor .container no afecte el posicionamiento absoluto del overlay */
+    .hero-content { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; z-index:3; }
+
+    .hero-title {
+        font-size: clamp(2rem, 3.8vw, 5.2rem);
+        margin: 0 0 0.3rem 0;
+        font-weight: 700;
+        line-height: 1.02;
+    }
+
+    .hero-sub { margin: 0; font-size: clamp(0.95rem, 1.6vw, 1.25rem); opacity: 0.95; }
+
+    /* quitar sombras fuertes para mejor legibilidad sobre el rosado */
+    .hero-title { text-shadow: none; }
+    .hero-sub { text-shadow: none; color: rgba(0,0,0,0.7); }
+
+    /* Acento y botón CTA */
+    .hero-title .accent { color: var(--accent); }
+    .btn-cta { display: inline-block; margin-top: 1rem; background: var(--accent); color: #111; padding: 0.6rem 1rem; border-radius: 6px; text-decoration: none; font-weight:700; transition: transform .12s ease, box-shadow .12s ease; box-shadow: 0 4px 12px rgba(246,166,35,0.18); }
+
+    /* Botón CTA grande y accesible */
+    .btn-cta--large {
+        padding: 0.9rem 1.25rem;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        letter-spacing: 0.4px;
+    }
+    .btn-cta--large:focus { outline: 3px solid rgba(246,166,35,0.25); outline-offset: 3px; }
+
+    /* Botón 'Ver diseños' dentro del hero: rosa pálido */
+    .hero-overlay .btn-cta--large {
+        background: var(--rosa-palido);
+        color: #111;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        border: 1px solid rgba(0,0,0,0.04);
+    }
+    .hero-overlay .btn-cta--large:hover,
+    .hero-overlay .btn-cta--large:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    /* Responsivo */
+    @media (max-width: 800px) {
+        :root { --hero-height: 360px; }
+        .hero-title { font-size: 1.6rem; }
+        .hero-sub { font-size: .95rem; }
+    }
+
+    @media (min-width: 1200px) {
+        .hero-inner { grid-template-columns: 1fr; }
+    }
+
+    /* SECCIÓN INTRODUCCIÓN (texto a la izquierda, imagen a la derecha) */
+    .intro {
+        padding: 3rem 1rem;
+        background: transparent;
+    }
+
+    .intro-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2.5rem;
+        justify-content: center;
+        padding: 0 1rem;
+    }
+
+    .intro-text {
+        background: var(--rosa-palido); /* rosa más visible */
+        padding: 2.25rem 1.75rem;
+        border-radius: 8px;
+        color: #111;
+        max-width: 300px;
+        min-width: 200px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .intro-text h3 {
+        text-align: center;
+        margin: 0 0 1rem 0;
+        font-size: 1.9rem; /* aumentar tamaño para que la etiqueta no sea tan pequeña */
+        letter-spacing: 0.6px;
+        line-height: 1.05;
+        font-weight: 800;
+        width: 100%;
+        display: block;
+    }
+
+    .intro-text p {
+        text-align: center;
+        margin: 0;
+        line-height: 1.6;
+        width: 100%;
+        display: block;
+    }
+
+    .intro-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+    .intro-image img {
+        width: 100%;
+        max-width: 275px;
+        height: auto;
+        max-height: 600px;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        object-fit: contain;
+        margin: 0 auto;
+    }
+        .ProductoRepostera {
+        padding: 3rem 1rem;
+        background: transparent;
+    }
+    .ProductoRepostera-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr; /* solo imagen + texto, la tercera columna removida */
+        gap: 2.2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .ProductoRepostera-imagen {
+        position: relative;
+        display: flex;
+        /* Centrar verticalmente la imagen dentro de su columna */
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+    }
+    .ProductoRepostera-imagen img {
+        width: 100%;
+        max-width: 275px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        display: block;
+    }
+    .ProductoRepostera-boton {
+        position: absolute;
+        left: 50%;
+        bottom: 1.2rem;
+        transform: translateX(-50%);
+        z-index: 2;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        white-space: normal;
+        text-align: center;
+        min-width: 180px;
+        max-width: 90%;
+    }
+    .ConoceRepostera {
+        background: var(--rosa-palido);
+        padding: 2.2rem 1.5rem;
+        border-radius: 8px;
+        color: #111;
+        box-sizing: border-box;
+        max-width: 370px;
+        margin: 0 auto;
+        min-width: 0;
+        text-align: left;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .ConoceRepostera h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+    }
+    .ConoceRepostera p {
+        margin: 0;
+        line-height: 1.6;
+        font-size: 1.05rem;
+    }
+    /* Overlay variant: show the ConoceRepostera card on top of the image (desktop) */
+    .ConoceRepostera--overlay {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(70%);
+        z-index: 4;
+        width: min(88%, 480px);
+        background: rgba(247,233,233,0.98);
+        padding: 1rem 1rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+        text-align: center;
+    }
+    .ConoceRepostera--overlay h3 { margin-top: 0; }
+    .ProductoRepostera-foto {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* photo column removed */
+    .galeria-tortas {
+        padding: 2.5rem 1rem;
+    }
+    .galeria-tortas > h3 {
+        max-width: 1100px;
+        margin: 0 auto 1.25rem;
+        padding: 0 1rem;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .galeria-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        align-items: center; /* centrar verticalmente */
+        justify-items: center; /* centrar horizontalmente */
+    }
+    .card-torta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* centrar verticalmente el contenido */
+        align-items: center; /* centrar horizontalmente el contenido */
+        background: var(--rosa-palido); /* rosa más visible */
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: transform .18s ease, box-shadow .18s ease;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        width: auto;
+        max-width: 380px; /* limitar ancho para que aparezcan centradas */
+        height: 100%;
+        padding: 0.5rem 0;
+    }
+    .card-torta:focus,
+    .card-torta:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+        outline: none;
+    }
+    .card-figure {
+        /* contenedor con altura fija visual, centra la imagen dentro */
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .card-figure img {
+        /* mostrar la imagen completa sin recortar */
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        object-fit: contain; /* garantiza que la imagen se vea completa */
+        display: block;
+        border-radius: 10px;
+    }
+    .card-body {
+        padding: 1rem;
+        text-align: center;
+    }
+    .card-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #111;
+    }
+    .card-precio {
+        margin: 0.5rem 0 0;
+        font-weight: 800;
+        color: var(--accent);
+    }
+    .VerDiseños {
+        display: flex;
+        justify-content: center;
+        margin: 0rem auto 2rem;
+        padding: 0;
+        border: none;
+        background: none;
+
+    }
+
+    /* Asegurar animación para el CTA 'Conoce más diseños' */
+    .VerDiseños .btn-cta {
+        transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, background-color .12s ease;
+        will-change: transform, box-shadow;
+    }
+    .VerDiseños .btn-cta:hover,
+    .VerDiseños .btn-cta:focus-visible {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    .VerDiseños .btn-cta:active {
+        transform: translateY(0) scale(0.995);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    /* Responsive: dos columnas en tablets, una columna en móviles */
+    @media (max-width: 900px) {
+        .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+        .galeria-grid { grid-template-columns: 1fr; }
+        /* Mantener imágenes grandes en móvil: la imagen llena la figura */
+        .card-figure { height: 380px; }
+        .card-figure img { width: 100%; height: 100%; object-fit: cover; }
+       .card-torta { width: 90%; max-width: 520px; }
+   }
+    @media (max-width: 900px) {
+        .ProductoRepostera-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .ProductoRepostera-imagen,
+        .ProductoRepostera-foto {
+            justify-content: center;
+        }
+        .ConoceRepostera {
+            max-width: 98vw;
+        }
+        .ProductoRepostera-boton {
+            position: absolute;
+            left: 50%;
+            bottom: 1.2rem;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            white-space: normal;
+            text-align: center;
+            min-width: 180px;
+            max-width: 90%;
+        }
+        .ProductoRepostera-boton:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 10px 30px rgba(246,166,35,0.22);
+        }
+    }
+
+        /* FOOTER: diseño rosado pálido coherente con la web */
+        .site-footer {
+            background: var(--rosa-palido);
+            color: #111;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            margin-top: 2.5rem;
+        }
+        .site-footer .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem 2rem;
+            align-items: start;
+            padding: 0 1rem;
+        }
+        .site-footer h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #111;
+        }
+        .footer-meta { margin: 0.25rem 0; font-weight: 600; }
+        .footer-meta a { color: #111; text-decoration: none; }
+        .redes-list { display:flex; gap:0.6rem; flex-wrap:wrap; }
+        .redes-list a {
+            display:inline-block;
+            background: rgba(0,0,0,0.06);
+            color: #111;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .footer-col a { display:block; color: #111; text-decoration: none; margin: 0.25rem 0; font-weight:600; }
+        .footer-copy {
+            max-width: 1100px;
+            margin: 1.25rem auto 0;
+            padding: 0 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.6);
+        }
+        /* Responsive: apilar columnas en móvil */
+        @media (max-width: 900px) {
+            .site-footer .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 0.75rem;
+            }
+            .redes-list { justify-content: center; }
+            .footer-col a { display: inline-block; margin: 0.35rem 0.6rem; }
+        }
+
+    /* Restaurar animación del botón en todos los tamaños (sin afectar otros botones) */
+    .ProductoRepostera-boton:hover {
+        transform: translateX(-50%) translateY(-3px);
+        box-shadow: 0 10px 30px rgba(246,166,35,0.22);
+    }
+    @media (max-width: 900px) {
+        /* Apilar la sección de producto/repostera y asegurar orden correcto */
+        .ProductoRepostera-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .ProductoRepostera-foto {
+            order: 2;
+        }
+        /* On small screens the overlay becomes static and stacks above the image */
+        .ConoceRepostera,
+        .ConoceRepostera--overlay {
+            position: static;
+            transform: none;
+            width: 100%;
+            max-width: 98vw;
+            margin: 0 auto 0.5rem;
+            text-align: center;
+        }
+
+        /* Make inner image container a column so internal elements stack in order */
+        .ProductoRepostera-imagen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative; /* keep relative for any remaining absolute children */
+        }
+        .ProductoRepostera-imagen img {
+            order: 2;
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+        }
+        .ConoceRepostera { order: 1; }
+        /* Place the button after the image in the flow and remove absolute positioning on small screens */
+        .ProductoRepostera-boton {
+            order: 3;
+            position: static;
+            left: auto;
+            bottom: auto;
+            transform: none;
+            margin: 0.25rem auto 0;
+            display: inline-block;
+        }
+        .ProductoRepostera-boton {
+            position: absolute;
+            left: 50%;
+            bottom: 1.2rem;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            white-space: normal;
+            text-align: center;
+            min-width: 180px;
+            max-width: 90%;
+        }
+        .intro-text { max-width: 98vw; text-align: center; }
+
+        /* Corregir y mejorar el intro: apilar y centrar imagen y texto en pantallas pequeñas */
+        .intro-inner {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+            padding: 0 1rem;
+        }
+        .intro-image {
+            order: 2;
+            max-width: 720px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .intro-image img {
+            max-width: 92%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+
+
+</style>
+<style>
+    /* smooth scroll para anclas internas */
+    html { scroll-behavior: smooth; }
+</style>
+<script>
+// Animación de scroll con control de duración y easing (tipada para evitar errores de compilación)
+(function () {
+    function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3); }
+
+    function smoothScrollToElement(targetEl: Element | null, duration: number, offset: number = 0) {
+        if (!targetEl) return;
+        const start = window.pageYOffset;
+        const targetRect = targetEl.getBoundingClientRect();
+        const targetY = start + targetRect.top - offset;
+        const startTime = performance.now();
+
+        function step(now: number) {
+            const time = Math.min(1, (now - startTime) / duration);
+            const eased = easeOutCubic(time);
+            window.scrollTo(0, Math.round(start + (targetY - start) * eased));
+            if (time < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    document.addEventListener('click', function (e: MouseEvent) {
+        let el = e.target as HTMLElement | null;
+        // sube hasta encontrar un <a>
+        while (el && el.tagName !== 'A') el = el.parentElement as HTMLElement | null;
+        if (!el) return;
+        const href = el.getAttribute('href');
+        if (!href || href.charAt(0) !== '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        // Previene comportamiento por defecto y hace scroll animado
+        e.preventDefault();
+        const header = document.querySelector('.nav-bar') as HTMLElement | null;
+        const offset = header ? (header.offsetHeight + 8) : 8; // pequeño espacio
+        smoothScrollToElement(target, 700, offset);
+        // actualiza la URL sin recargar
+        if (history && history.pushState) history.pushState(null, '', href);
+    }, false);
+})();
+</script>

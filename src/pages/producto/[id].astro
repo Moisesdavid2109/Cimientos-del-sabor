@@ -1,0 +1,258 @@
+---
+import tortas, { formatCOP } from '../../data/tortas';
+import type { Torta } from '../../data/tortas';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return tortas.map((t) => ({ params: { id: t.id } }));
+}
+
+// Obtener id desde Astro.params para rutas dinámicas
+const id = Astro.params.id;
+const item: Torta | undefined = tortas.find(t => t.id === id);
+const index = item ? tortas.findIndex(t => t.id === id) : -1;
+const total = tortas.length;
+const waHref = item ? `https://wa.me/584247753792?text=${encodeURIComponent(`Estoy interesado en la ${item.title}`)}` : 'https://wa.me/584247753792';
+
+---
+
+{item ? (
+  <Layout>
+    <main class="product-detail container">
+    <a href="/Diseños" class="back" aria-label="Volver a Diseños">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="back-text">Volver a Diseños</span>
+    </a>
+    <div class="product-grid">
+      <div class="product-grid-inner">
+        <div class="product-media">
+          <div class="media-main">
+            <img id="main-img" class="product-image" src={item.img} alt={item.title} loading="lazy" />
+          </div>
+        </div>
+        <aside class="product-info">
+  <h1 class="product-title">{item.title}</h1>
+  <p class="price">Consultar precio</p>
+        <p class="description">{item.description}</p>
+
+        <!-- Eliminado el selector de cantidad y botones -->
+
+        <div class="product-actions">
+          <a id="wa-order" class="btn-cta" href={waHref} target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+        </div>
+        </aside>
+      </div>
+    </div>
+    </main>
+  </Layout>
+  ) : (
+    <Layout>
+      <main class="container">
+        <p>Producto no encontrado.</p>
+        <a href="/Diseños">Volver a Diseños</a>
+      </main>
+    </Layout>
+  )}
+
+<style is:inline data-page-style>
+  .product-detail{ max-width:1100px; padding-top:3.2rem }
+  .meta{ color:#666; margin-bottom:0.6rem }
+  /* Reduce image proportion: left column fixed to 480px, info takes remaining space */
+  /* Center image and info side-by-side */
+  /* Center the content and nudge slightly to the right so image + description sit a bit right of center */
+  .product-grid{ display:flex; gap:3rem; justify-content:center; align-items:center; flex-wrap:wrap; max-width:1100px; margin:0 auto; padding:0 1rem }
+  /* Use padding-left to nudge content slightly to the right on wider screens */
+  .product-grid-inner{ display:flex; gap:3rem; justify-content:center; align-items:center; width:100% }
+  .product-media{ flex:0 0 380px; display:flex; justify-content:center }
+  .media-main{ border-radius:18px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06); width:100%; max-width:380px }
+  .product-image{ width:100%; height:auto; display:block; max-width:360px; border-radius:14px }
+
+  .product-info{ flex:0 0 420px; padding:0.6rem 0 }
+  .product-title{ font-size:1.6rem; margin:0 0 0.4rem; letter-spacing:0.2px; color: #111; font-weight:900 }
+  /* Separate the back button from the media/info block */
+  .back{ display:inline-flex; align-items:center; gap:0.6rem; padding:0.45rem 0.9rem; background:#fff; color:#111; border-radius:999px; text-decoration:none; box-shadow: 0 8px 24px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.06); font-weight:700; transition: transform .14s ease, box-shadow .14s ease; margin-bottom:1.4rem; }
+  .back svg{ display:block; color:var(--accent,#f7a31c); }
+  .back .back-text{ font-weight:700; font-size:0.95rem }
+  .back:hover{ transform:translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+  .back:focus{ outline:3px solid rgba(247,163,28,0.18); outline-offset:4px; }
+  .price{ font-weight:900; color:var(--accent,#f7a31c); font-size:1.6rem; margin:0.2rem 0 1rem }
+  .description{ margin-bottom:1rem; line-height:1.6; color: #222 }
+
+  .purchase-row{ display:flex; align-items:center; gap:0.75rem; margin-bottom:0.9rem }
+  .qty-controls{ display:inline-flex; align-items:center; border:1px solid rgba(0,0,0,0.08); border-radius:8px; overflow:hidden }
+  .qty-controls button{ background:transparent; border:0; padding:0.5rem 0.9rem; cursor:pointer; font-size:1.1rem }
+  .qty-controls input{ width:56px; text-align:center; border:0; padding:0.5rem 0 }
+
+  .product-actions{ margin-top:0.6rem; text-align:center; }
+  .btn-cta{ display:inline-block; background:var(--accent,#f7a31c); color:#111; padding:0.8rem 1.1rem; border-radius:10px; text-decoration:none; font-weight:800; margin:0 auto; }
+
+  /* Animación para el CTA de WhatsApp en la vista de producto */
+  .product-actions .btn-cta {
+    transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, background-color .12s ease;
+    will-change: transform, box-shadow;
+  }
+  .product-actions .btn-cta:hover,
+  .product-actions .btn-cta:focus-visible {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  }
+  .product-actions .btn-cta:active{
+    transform: translateY(0) scale(0.995);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  /* Nudge the inner grid slightly to the right on larger viewports */
+  @media (min-width:981px){
+    .product-grid-inner{ padding-left:2.4rem }
+  }
+
+  @media (max-width:980px){
+    .product-grid{ flex-direction:column; }
+    .product-info{ order:2; width:100%; flex: 1 1 auto }
+    .product-media{ flex: 0 0 auto }
+  }
+
+  /* stronger mobile tweaks for small phones */
+  @media (max-width:480px){
+    .product-grid-inner{ gap:1rem; padding-left:0 }
+    .product-media{ width:100%; max-width:360px; margin:0 auto }
+    .media-main{ max-width:360px }
+    .qty-controls input{ width:48px }
+    .product-title{ font-size:1.25rem }
+    .price{ font-size:1.15rem }
+    .product-info{ padding:0 }
+  }
+
+  @media (max-width: 768px) {
+    .product-grid {
+      flex-direction: column; /* Apilar elementos en pantallas pequeñas */
+      gap: 1rem; /* Reducir espacio entre elementos */
+    }
+
+    .product-media {
+      width: 100%; /* Asegurar que la imagen ocupe el ancho completo */
+      max-width: 100%;
+    }
+
+    .product-info {
+      width: 100%; /* Asegurar que la información ocupe el ancho completo */
+      padding: 1rem; /* Ajustar el padding para pantallas pequeñas */
+    }
+
+    .product-title {
+      font-size: 1.4rem; /* Reducir tamaño del título en pantallas pequeñas */
+    }
+
+    .price {
+      font-size: 1.2rem; /* Ajustar tamaño del precio */
+    }
+
+    .description {
+      font-size: 1rem; /* Ajustar tamaño de la descripción */
+    }
+  }
+
+  @media (max-width: 700px) {
+    .product-detail {
+      padding-top: 1.2rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .product-grid {
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 0;
+      max-width: 100vw;
+    }
+    .product-grid-inner {
+      flex-direction: column;
+      gap: 1.2rem;
+      padding-left: 0;
+      width: 100%;
+    }
+    .product-media {
+      width: 100%;
+      max-width: 100vw;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+    }
+    .media-main {
+      max-width: 98vw;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border-radius: 12px;
+    }
+    .product-image {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .product-info {
+      width: 100%;
+      padding: 0.8rem 0.2rem;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .product-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+    .price {
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .description {
+      font-size: 0.98rem;
+      margin-bottom: 0.7rem;
+    }
+    .purchase-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .qty-controls {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .qty-controls input {
+      width: 44px;
+      font-size: 1rem;
+    }
+    .product-actions {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .btn-cta {
+      width: auto;
+      font-size: 1rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      margin: 0 auto;
+      display: inline-block;
+    }
+    .back {
+      font-size: 0.95rem;
+      padding: 0.35rem 0.7rem;
+      margin-bottom: 1rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .product-title {
+      font-size: 1rem;
+    }
+    .description {
+      font-size: 0.92rem;
+    }
+    .btn-cta {
+      font-size: 0.98rem;
+      padding: 0.6rem 0.1rem;
+    }
+  }
+</style>
+
+
+<script src="/js/producto-contador.js" defer></script>
